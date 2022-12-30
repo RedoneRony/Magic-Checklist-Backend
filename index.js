@@ -5,11 +5,13 @@ import bdRoutes from "./routers/bdRoutes.js";
 import marketingRoutes from "./routers/marketingRoutes.js";
 import okrRoutes from "./routers/okrRoutes.js";
 import connectDb from "./config/db.js";
+import cors from "cors";
 
 dotEnv.config();
+const app = express();
+app.use(cors());
 
 connectDb();
-const app = express();
 
 app.use(express.json());
 

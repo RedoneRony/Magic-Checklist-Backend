@@ -4,6 +4,7 @@ import Okr from "./../models/okrModel.js";
 const getOkrList = asyncHandler(async (req, res) => {
   const bd = await Okr.find({ email: req.headers.email });
   res.send(bd);
+  res.send("retool");
 });
 const createOkrList = asyncHandler(async (req, res) => {
   const { email, okrQ1, okrYear } = req.body;
