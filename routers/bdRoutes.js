@@ -1,11 +1,14 @@
-import express from 'express'
-import { createBdList, getAllBdList, updateBdList } from '../controllers/bdController.js'
+import express from "express";
+import {
+  createBdList,
+  getAllBdList,
+  updateBdList,
+} from "../controllers/bdController.js";
 
+const router = express.Router();
 
-const router = express.Router()
+router.route("/getAll").get(getAllBdList);
+router.route("/createBdList").post(createBdList);
+router.route("/update/:id").put(updateBdList);
 
-router.route('/getAll').get(getAllBdList)
-router.route('/createBdList').post(createBdList);
-router.route('/update').put(updateBdList)
-
-export default router
+export default router;
