@@ -3,8 +3,7 @@ import  mongoose  from 'mongoose'
 const okrSchema = mongoose.Schema({
     email:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     okrQ1:[{
         type:String,

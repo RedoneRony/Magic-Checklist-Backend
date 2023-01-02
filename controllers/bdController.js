@@ -42,4 +42,21 @@ const updateBdList = asyncHandler(async (req, res) => {
   }
 });
 
-export { getAllBdList, createBdList, updateBdList };
+// delete Bd List
+
+const deleteBdList = asyncHandler(async(req,res)=>{
+
+  const bdList = await Bd.findById(req.headers.id)
+   
+   if(bdList){
+       await Bd.deleteOne()
+       res.send({message:'BdList Removed'})
+   }
+   else{
+       res.status(404)
+       res.json({message:'Not Found'})
+   }
+  
+})
+
+export { getAllBdList, createBdList, updateBdList,deleteBdList};

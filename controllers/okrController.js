@@ -41,4 +41,23 @@ const updateOkrList = asyncHandler(async (req, res) => {
   }
 });
 
-export { getOkrList, createOkrList, updateOkrList };
+// marketing Delete
+
+const deleteOkrList = asyncHandler(async(req,res)=>{
+
+  const okrList = await Okr.findById(req.headers.id)
+   
+   if(okrList){
+       await Okr.deleteOne()
+       res.send({message:'Okr Removed'})
+   }
+   else{
+       res.status(404)
+       res.json({message:'Not Found'})
+   }
+  
+})
+
+
+
+export { getOkrList, createOkrList, updateOkrList,deleteOkrList };

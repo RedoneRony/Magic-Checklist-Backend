@@ -45,4 +45,21 @@ const updateMarketingList = asyncHandler(async (req, res) => {
   }
 });
 
-export { getAllMarketingList, createMarketingList, updateMarketingList };
+// marketing Delete
+
+const deleteMarketingList = asyncHandler(async(req,res)=>{
+
+  const mrkList = await Marketing.findById(req.headers.id)
+   
+   if(mrkList){
+       await Marketing.deleteOne()
+       res.send({message:'Marketing Removed'})
+   }
+   else{
+       res.status(404)
+       res.json({message:'Not Found'})
+   }
+  
+})
+
+export { getAllMarketingList, createMarketingList, updateMarketingList,deleteMarketingList };

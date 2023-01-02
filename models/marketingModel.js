@@ -3,8 +3,7 @@ import  mongoose  from 'mongoose'
 const marketingSchema = mongoose.Schema({
     email:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     marketingCheckList:[{
         type:String,

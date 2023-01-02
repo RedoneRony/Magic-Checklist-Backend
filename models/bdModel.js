@@ -3,8 +3,7 @@ import  mongoose  from 'mongoose'
 const bdSchema = mongoose.Schema({
     email:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     bdCheckList:[{
         type:String,
