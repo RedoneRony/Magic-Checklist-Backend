@@ -47,19 +47,21 @@ const updateMarketingList = asyncHandler(async (req, res) => {
 
 // marketing Delete
 
-const deleteMarketingList = asyncHandler(async(req,res)=>{
+const deleteMarketingList = asyncHandler(async (req, res) => {
+  const query = req.headers.id;
 
-  const mrkList = await Marketing.findById(req.headers.id)
-   
-   if(mrkList){
-       await Marketing.deleteOne()
-       res.send({message:'Marketing Removed'})
-   }
-   else{
-       res.status(404)
-       res.json({message:'Not Found'})
-   }
-  
-})
+  if (query) {
+    await Marketing.findOneAndRemove({ _id: query });
+    res.send({ message: "Marketing Removed" });
+  } else {
+    res.status(404);
+    res.json({ message: "Not Found" });
+  }
+});
 
-export { getAllMarketingList, createMarketingList, updateMarketingList,deleteMarketingList };
+export {
+  getAllMarketingList,
+  createMarketingList,
+  updateMarketingList,
+  deleteMarketingList,
+};
