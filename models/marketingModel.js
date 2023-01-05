@@ -5,14 +5,26 @@ const marketingSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    marketingCheckListTitle:{
+        type:String,
+        required:true
+    },
     marketingCheckList:[{
         type:String,
         required:true
      }],
-     webDirectories :[{
+    webDirectoriesTitle:{
+        type:String,
+        required:true
+    },
+    webDirectories :[{
         type:String,
         required:true,
     }],
+    contentPlanTitle:{
+        type:String,
+        required:true
+    },
     contentPlan :[{
         type:String,
         required:true,

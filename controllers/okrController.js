@@ -7,11 +7,13 @@ const getOkrList = asyncHandler(async (req, res) => {
   res.send("retool");
 });
 const createOkrList = asyncHandler(async (req, res) => {
-  const { email, okrQ1, okrYear } = req.body;
+  const { email, okr1Title, okrQ1,okrYearTitle, okrYear } = req.body;
 
   const okr = await Okr.create({
     email,
+    okr1Title,
     okrQ1,
+    okrYearTitle,
     okrYear,
   });
 

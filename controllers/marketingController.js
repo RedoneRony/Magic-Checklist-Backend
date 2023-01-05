@@ -6,12 +6,15 @@ const getAllMarketingList = asyncHandler(async (req, res) => {
   res.send(marketing);
 });
 const createMarketingList = asyncHandler(async (req, res) => {
-  const { email, marketingCheckList, webDirectories, contentPlan } = req.body;
+  const { email, marketingCheckListTitle,marketingCheckList,webDirectoriesTitle, webDirectories, contentPlanTitle,contentPlan } = req.body;
 
   const marketing = await Marketing.create({
     email,
+    marketingCheckListTitle,
     marketingCheckList,
+    webDirectoriesTitle,
     webDirectories,
+    contentPlanTitle,
     contentPlan,
   });
 
