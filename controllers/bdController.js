@@ -6,12 +6,15 @@ const getAllBdList = asyncHandler(async (req, res) => {
   res.send(bd);
 });
 const createBdList = asyncHandler(async (req, res) => {
-  const { email, bdCheckList, salesActivity, marketPlace } = req.body;
+  const { email, bdCheckListTitle,bdCheckList, salesActivityTitle,salesActivity,marketPlaceTitle, marketPlace } = req.body;
 
   const bd = await Bd.create({
     email,
+    bdCheckListTitle,
     bdCheckList,
+    salesActivityTitle,
     salesActivity,
+    marketPlaceTitle,
     marketPlace,
   });
 
