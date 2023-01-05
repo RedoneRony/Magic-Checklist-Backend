@@ -6,6 +6,7 @@ import marketingRoutes from "./routers/marketingRoutes.js";
 import okrRoutes from "./routers/okrRoutes.js";
 import connectDb from "./config/db.js";
 import userRoutes from "./routers/userRoutes.js";
+import userOtherInformationRoutes from "./routers/userOtherInformationRoutes.js";
 import cors from "cors";
 
 dotEnv.config();
@@ -20,6 +21,7 @@ app.use("/api/bd", bdRoutes);
 app.use("/api/marketing", marketingRoutes);
 app.use("/api/okr", okrRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/userOtherInformation", userOtherInformationRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")));
