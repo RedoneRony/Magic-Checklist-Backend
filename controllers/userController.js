@@ -9,7 +9,7 @@ const getUserList = asyncHandler(async (req, res) => {
 const createUserList = asyncHandler(async (req, res) => {
   const userList = await User.findOne({ email: req.body.email }).exec();
   const { email } = req.body;
-  if (userList === null) {
+  if (userList === null && req.body.email !== "undefined") {
     await User.create({
       email,
     });
