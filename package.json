@@ -9,7 +9,9 @@
     "start": ".\"/node_modules/.bin/pm2\" start pm2.json",
     "restart": ".\"/node_modules/.bin/pm2\" restart pm2.json",
     "stop": ".\"/node_modules/.bin/pm2\" delete pm2.json",
-    "server": "nodemon index"
+    "server": "nodemon index.js",
+    "live_start_server": "npm install && npm start",
+    "live_restart_server": "npm install && npm restart"
   },
   "author": "",
   "license": "ISC",
@@ -24,3 +26,8 @@
     "pm2": "^3.5.1"
   }
 }
+
+
+
+    
+
