@@ -31,7 +31,7 @@ app.use("/api/userOtherInformation", userOtherInformationRoutes);
 //   );
 // } else {
 app.get("/", (req, res) => {
-  res.send(" Tools23 API is running....");
+  res.send(" Tools23 api is running....");
 });
 // }
 
