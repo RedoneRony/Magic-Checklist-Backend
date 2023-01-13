@@ -1,24 +1,26 @@
-import asyncHandler from 'express-async-handler'
-import UserOtherInformation from '../models/userOtherInformationModel.js'
+import asyncHandler from "express-async-handler";
+import UserOtherInformation from "../models/userOtherInformationModel.js";
 
 const getUserOtherInformation = asyncHandler(async (req, res) => {
-  const userOtherInfo = await UserOtherInformation.find({})
-  res.json(userOtherInfo)
-})
+  const userOtherInfo = await UserOtherInformation.find({});
+  res.json(userOtherInfo);
+});
 
 const createOrUpdateUserOtherInformation = asyncHandler(async (req, res) => {
   const userOtherInformation = await UserOtherInformation.findOne({
-    email: req.body.email
-  }).exec()
-  const { email, agencyName, agencySize, location } = req.body
+    email: req.body.email,
+  }).exec();
+  const { email, agencyName, agencySize, location, targetCustomerLocation } =
+    req.body;
   if (userOtherInformation === null) {
     await UserOtherInformation.create({
       email,
       agencyName,
       agencySize,
-      location
-    })
-    res.status(201).json({ message: 'User Other Information Created' })
+      location,
+      targetCustomerLocation,
+    });
+    res.status(201).json({ message: "User Other Information Created" });
   } else {
     UserOtherInformation.findOneAndUpdate(
       { email: req.body.email },
@@ -26,21 +28,22 @@ const createOrUpdateUserOtherInformation = asyncHandler(async (req, res) => {
         $set: {
           agencyName: agencyName,
           agencySize: agencySize,
-          location: location
-        }
+          location: location,
+          targetCustomerLocation: targetCustomerLocation,
+        },
       }
     ).exec(function (err, result) {
       if (err) {
-        console.log(err)
-        res.status(500).send(err)
+        console.log(err);
+        res.status(500).send(err);
       } else {
-        res.status(200).send(result)
+        res.status(200).send(result);
       }
-    })
+    });
 
     // await UserOtherInformation.findOneAndUpdate(filter, update)
     // res.status(400).json({ message: ' Update User Other Information' })
   }
-})
+});
 
-export { getUserOtherInformation, createOrUpdateUserOtherInformation }
+export { getUserOtherInformation, createOrUpdateUserOtherInformation };

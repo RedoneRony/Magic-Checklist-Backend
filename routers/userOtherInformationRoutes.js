@@ -1,12 +1,12 @@
-import express from 'express'
+import express from "express";
 import {
   getUserOtherInformation,
-  createOrUpdateUserOtherInformation
-} from '../controllers/userOtherInformationController.js'
+  createOrUpdateUserOtherInformation,
+} from "../controllers/userOtherInformationController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.route('/getAll').get(getUserOtherInformation)
-router.route('/createList').post(createOrUpdateUserOtherInformation)
+router.route("/getAll").get(getUserOtherInformation);
+router.route("/createList").post(createOrUpdateUserOtherInformation);
 
-export default router
+export default router;

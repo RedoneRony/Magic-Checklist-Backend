@@ -18,6 +18,10 @@ const userOtherInformationSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    targetCustomerLocation: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
